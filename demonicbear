@@ -271,6 +271,20 @@ if __name__ == "__main__":
                         os.system('git pull -u origin master')
                         os.chdir('/etc/bears')
                         save_changes()
+		elif 'remove' == sys.argv[1]:
+			# Extract the userpath, directory, and username from the args
+                        userpath = sys.argv[3]
+                        directory = sys.argv[2]
+                        username = sys.argv[4]
+
+                        # The name of the directory is the last folder in the provided
+                        # directory path, extract it
+                        name = directory.split('/')[len(directory.split('/')) - 1]
+
+                        # Make a new folder in the folder of repositories for the new
+                        # repository
+                        os.system("rm -r " + repo_path + '/' + name)
+			print(name + "is removed")
                 else:
                         print "Unknown command"
                         sys.exit(2)

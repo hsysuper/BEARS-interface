@@ -39,7 +39,8 @@ addpush -m <filename>     :: Adds and automatically pushes a file to the
 addpushall                :: Adds and pushes all of the files in the
                              repository. Handy for pushing lots of changes
                              in one fell swoop!
-pull                      :: Pulls any updated files. \n\n"""
+pull                      :: Pulls any updated files.
+remove                    :: Remove current repo \n\n"""
 
 
 def process_args(opts, args, message):
@@ -61,7 +62,7 @@ def process_args(opts, args, message):
     if arg in ["exit", "goodbye", "quit"]:
         print("Goodbye!")
         sys.exit()
-    if arg in ["pull", "share", "add", "push", "addpush", "addpushall", "adduser", "retrieve"]:
+    if arg in ["pull", "share", "add", "push", "addpush", "addpushall", "adduser", "retrieve","remove"]:
         try:
             send_to_daemon(message)
         except OSError:
